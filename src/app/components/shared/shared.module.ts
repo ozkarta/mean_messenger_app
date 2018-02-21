@@ -1,20 +1,21 @@
 import {NgModule} from '@angular/core';
-import {HomeComponent} from './home/home.component';
+import {NavComponent} from './nav/nav.component';
+import {MessengerComponent} from './messenger/messenger.component';
 import {CommonModule} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
-import {UserNavComponent} from './nav/nav.component';
-import {UserRoutingModule} from './routes';
+import {VisitorModule} from '../visitor/visitor.module';
+import {UserModule} from '../user/user.module';
 
 
 
 
 @NgModule({
 	declarations: [
-		HomeComponent,
-		UserNavComponent
+		MessengerComponent,
+		NavComponent
 	],
 	imports: [
 		HttpClientModule,
@@ -22,11 +23,11 @@ import {UserRoutingModule} from './routes';
 		FormsModule,
 		CommonModule,
 		RouterModule,
-		UserRoutingModule
+
+		VisitorModule,
+		UserModule
 	],
-	exports: [
-		UserNavComponent
-	],
+	exports: [NavComponent],
 	providers: []
 })
-export class UserModule { }
+export class SharedModule { }
