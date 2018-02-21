@@ -13,9 +13,10 @@ const app = express();
 const server = http.Server(app);
 const WebSocketServer = ws.Server
 
+const staticDBUrl = 'mongodb://heroku_c66jsjhb:ml2qcdjp85lev4ccshvonp5g6q@ds145438.mlab.com:45438/heroku_c66jsjhb';
 // Mongoose setup
 mongoose.Promise = global.Promise;
-if (process.env.DB_CONNECTION) {
+if (process.env.DB_CONNECTION || staticDBUrl) {
     mongoose.connect(process.env.DB_CONNECTION || staticDBUrl);
     const db = mongoose.connection;
     db.on('error', function(err){
@@ -66,7 +67,7 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 /*** Get port from environment and store in Express.*/
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 app.set('port', port);
 
 server.listen(port, () => console.log(`Our server is running on: ${port}`));

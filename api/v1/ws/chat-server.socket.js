@@ -3,7 +3,7 @@ let WS_USER_ARRAY = [];
 module.exports.chatServerHandler = (ws) => {
     ws.on('open', () => {
         console.log('Connection is open');
-    })
+    });
 
     ws.on('close', () => {
         console.log('___________________disconnected');
