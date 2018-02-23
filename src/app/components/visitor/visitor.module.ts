@@ -9,28 +9,29 @@ import {VisitorNavComponent} from './nav/nav.component';
 import {VisitorRoutingModule} from './routes';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
+import {VisitorAuthGuard} from './visitor-auth.guard';
 
 
 
 
 @NgModule({
-	declarations: [
-		HomeComponent,
-		VisitorNavComponent,
-		LoginComponent,
-		RegisterComponent
-	],
-	imports: [
-		HttpClientModule,
-		BrowserModule,
-		FormsModule,
-		CommonModule,
-		RouterModule,
-		VisitorRoutingModule
-	],
-	exports: [
-		VisitorNavComponent
-	],
-	providers: []
+  declarations: [
+    HomeComponent,
+    VisitorNavComponent,
+    LoginComponent,
+    RegisterComponent
+  ],
+  imports: [
+    HttpClientModule,
+    BrowserModule,
+    FormsModule,
+    CommonModule,
+    RouterModule,
+    VisitorRoutingModule
+  ],
+  exports: [
+    VisitorNavComponent
+  ],
+  providers: [VisitorAuthGuard]
 })
 export class VisitorModule { }

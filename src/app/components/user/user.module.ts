@@ -7,6 +7,7 @@ import {FormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {UserNavComponent} from './nav/nav.component';
 import {UserRoutingModule} from './routes';
+import {UserAuthGuard} from './user-auth.guard';
 
 
 
@@ -27,6 +28,8 @@ import {UserRoutingModule} from './routes';
 	exports: [
 		UserNavComponent
 	],
-	providers: []
+	providers: [
+		UserAuthGuard
+	]
 })
 export class UserModule { }
