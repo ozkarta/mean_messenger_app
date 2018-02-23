@@ -10,6 +10,8 @@ import {CommonModule} from '@angular/common';
 import {SharedModule} from './components/shared/shared.module';
 import {RouterModule} from '@angular/router';
 import {AppRoutingModule} from './app.routes';
+import {ChatService} from './service/ws-chat.service';
+import {WebSocketService} from './service/ws.service';
 
 
 @NgModule({
@@ -26,7 +28,10 @@ import {AppRoutingModule} from './app.routes';
     SharedModule,
 		AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    WebSocketService,
+    ChatService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

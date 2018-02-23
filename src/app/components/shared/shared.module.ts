@@ -8,6 +8,7 @@ import {FormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {VisitorModule} from '../visitor/visitor.module';
 import {UserModule} from '../user/user.module';
+import {SharedRoutingModule} from './routes';
 
 
 
@@ -23,6 +24,7 @@ import {UserModule} from '../user/user.module';
 		FormsModule,
 		CommonModule,
 		RouterModule,
+		SharedRoutingModule,
 
 		VisitorModule,
 		UserModule

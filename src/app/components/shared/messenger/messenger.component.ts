@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {ChatService} from '../../../service/ws-chat.service';
 @Component({
 	selector: 'app-messenger-component',
 	templateUrl: './messenger.component.html',
@@ -6,9 +7,11 @@ import {Component, OnInit} from '@angular/core';
 })
 
 export class MessengerComponent implements OnInit {
-	constructor() {
+	constructor(private chatService: ChatService) {
+
 	}
 
 	ngOnInit() {
+
 	}
 }
