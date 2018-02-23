@@ -7,6 +7,8 @@ import {FormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {VisitorNavComponent} from './nav/nav.component';
 import {VisitorRoutingModule} from './routes';
+import {LoginComponent} from './login/login.component';
+import {RegisterComponent} from './register/register.component';
 
 
 
@@ -14,7 +16,9 @@ import {VisitorRoutingModule} from './routes';
 @NgModule({
 	declarations: [
 		HomeComponent,
-		VisitorNavComponent
+		VisitorNavComponent,
+		LoginComponent,
+		RegisterComponent
 	],
 	imports: [
 		HttpClientModule,

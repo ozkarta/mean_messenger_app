@@ -1,9 +1,9 @@
 
-<ng-container>
+<ng-container *ngIf="user">
   <app-user-navbar></app-user-navbar>
 </ng-container>
 
 
-<!--<ng-container>-->
-  <!--<app-visitor-navbar></app-visitor-navbar>-->
-<!--</ng-container>-->
+<ng-container  *ngIf="!user">
+  <app-visitor-navbar></app-visitor-navbar>
+</ng-container>

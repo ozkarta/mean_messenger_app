@@ -12,6 +12,8 @@ import {RouterModule} from '@angular/router';
 import {AppRoutingModule} from './app.routes';
 import {ChatService} from './service/ws-chat.service';
 import {WebSocketService} from './service/ws.service';
+import {AppService} from './service/app.service';
+import {UserService} from './service/user.service';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import {WebSocketService} from './service/ws.service';
   ],
   providers: [
     WebSocketService,
-    ChatService
+    ChatService,
+    AppService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

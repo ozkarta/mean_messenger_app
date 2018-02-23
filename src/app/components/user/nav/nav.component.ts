@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {UserService} from '../../../service/user.service';
+import {Router} from '@angular/router';
 @Component({
 	selector: 'app-user-navbar',
 	templateUrl: './nav.component.html',
@@ -6,12 +8,22 @@ import {Component, OnInit} from '@angular/core';
 })
 
 export class UserNavComponent implements OnInit {
-	constructor() {
+	constructor(private userService: UserService,
+							private router: Router) {
 	}
 
 	ngOnInit() {
 	}
 
-	logOut() {
-	}
+  logOut() {
+    this.userService.logOut()
+      .subscribe(
+        success => {
+          this.router.navigate(['/']);
+        },
+        error => {
+          console.dir(error);
+        }
+      )
+  }
 }

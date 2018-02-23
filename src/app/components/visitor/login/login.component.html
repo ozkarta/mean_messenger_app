@@ -1,0 +1,29 @@
+<div class="log-in">
+  <div class="login-container">
+    <h4>Log In</h4>
+    <form class="form-inline" #signInForm="ngForm">
+      <div class="login-input-box">
+        <input class="form-control" type="text" placeholder="Email" name="email" [(ngModel)]="userLike['email']" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,6}$">
+        <div class="login-error-message" *ngIf="signInFormErrors['email']">
+          {{signInFormErrors['email']}}
+        </div>
+      </div>
+      <div class="login-input-box">
+        <input class="form-control" type="password" placeholder="Password"  name="password" [(ngModel)]="userLike['password']" minlength="6" required>
+        <div class="login-error-message" *ngIf="signInFormErrors['password']">
+          {{signInFormErrors['password']}}
+        </div>
+      </div>
+
+
+
+      <div *ngIf="globalErrorMessage">
+        {{globalErrorMessage}}
+      </div>
+      <button class="signin-button" type="button" name="button" (click)="logIn()" [disabled]="!signInForm.form.valid">Sign In</button>
+    </form>
+    <span>or</span>
+
+    <button class="registration" type="button" name="button">Registration</button>
+  </div>
+</div>
