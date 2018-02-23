@@ -1,5 +1,5 @@
 let mongoose = require('mongoose');
-let chatPlugin = require('../ws/user-model.plugin');
+let chatPlugin = require('../ws/ws-models/plugins/user-model.plugin');
 
 let userSchema = new mongoose.Schema({
   firstName: {type: String, trim: true},

@@ -1,5 +1,10 @@
 let WS_USER_ARRAY = [];
 
+// Mongoose Models
+let User = require('../model/user.model').model;
+let Chat = require('./ws-models/chat.model').model;
+let ChatMessage = require('./ws-models/chat-message.model').model;
+
 module.exports.chatServerHandler = (ws) => {
   console.log('Client is connected');
 
