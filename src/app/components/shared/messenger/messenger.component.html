@@ -72,7 +72,7 @@
           </div></div>
           </div><!--new_message_head-->
 
-          <div class="chat_area">
+          <div class="chat_area overflow: scroll; height: xyz;" #scrollable>
             <ul class="list-unstyled">
 
               <!--Other-->
@@ -97,15 +97,41 @@
                 <!--</div>-->
               <!--</li>-->
 
+              <ng-container *ngFor="let message of activeChat.messages">
+                <li class="left clearfix admin_chat" *ngIf="message.sender === user['_id']">
+                     <span class="chat-img1 pull-right">
+                     <img src="https://www.atomix.com.au/media/2015/06/atomix_user31.png" alt="User Avatar" class="img-circle">
+                     </span>
+                  <div class="chat-body1 clearfix ">
+                    <p>{{message.text}}</p>
+                    <div class="chat_time pull-right">{{message.createdAt | date: 'MMM d, y, h:mm:ss a'}}</div>
+                  </div>
+                </li>
+
+
+                <li class="left clearfix" *ngIf="message.sender !== user['_id']">
+                     <span class="chat-img1 pull-left">
+                     <img src="https://www.atomix.com.au/media/2015/06/atomix_user31.png" alt="User Avatar" class="img-circle">
+                     </span>
+                  <div class="chat-body1 clearfix">
+                    <p>{{message.text}}</p>
+                    <div class="chat_time pull-right">{{message.createdAt | date: 'MMM d, y, h:mm:ss a'}}</div>
+                  </div>
+                </li>
+              </ng-container>
+
             </ul>
           </div><!--chat_area-->
           <div class="message_write">
-            <textarea class="form-control" placeholder="type a message"></textarea>
+            <textarea class="form-control" placeholder="type a message" [(ngModel)]="messageText" name="messageText"></textarea>
             <div class="clearfix"></div>
             <div class="chat_bottom"><a href="#" class="pull-left upload_btn"><i class="fa fa-cloud-upload" aria-hidden="true"></i>
               Add Files</a>
-              <a href="#" class="pull-right btn btn-success">
-                Send</a></div>
+
+                <button class="pull-right btn btn-success" (click)="sendMessage()" [disabled]="!wsUserConnected">
+                  Send
+                </button>
+            </div>
           </div>
         </div>
       </div> <!--message_section-->

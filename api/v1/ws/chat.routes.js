@@ -15,13 +15,16 @@ module.exports.chatRoteHandler = (express) => {
       .populate([
         {
           path: 'chats',
-          populate: {
-            path: 'participants'
-          }
-        },
-        {
-          path: 'messages'
+          populate: [
+            {
+              path: 'participants'
+            },
+            {
+              path: 'messages'
+            }
+          ]
         }
+
       ])
       .lean()
       .exec()
