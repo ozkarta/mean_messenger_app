@@ -53,9 +53,11 @@ app.use('/doc', express.static(path.join(__dirname, 'doc')));
 // Get our API routes
 const routes = require('./api/v1/shared/routes')(express);
 const chatServerHandler = require('./api/v1/ws/chat-server.socket').chatServerHandler;
+const chatRoutes = require('./api/v1/ws/chat.routes').chatRoteHandler(express);
 
 // Set our api routes
 app.use('/api/v1', routes);
+app.use('/api/v1/chat', chatRoutes);
 // Test /ping
 app.get('/ping', function(req, res){
     res.status(200).json({
