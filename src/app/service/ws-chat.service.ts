@@ -6,7 +6,7 @@ import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 
 @Injectable()
-export class ChatService {
+export class ChatWebSocketService {
   public ws: Subject<any>;
   public connected: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
