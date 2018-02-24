@@ -10,7 +10,7 @@ import {AppService} from '../../../service/app.service';
 
 export class RegisterComponent implements OnInit, AfterViewChecked {
     public user: any = {
-        role: 'buyer',
+        role: 'regular',
         address: {}
     };
     private registrationForm: NgForm;
